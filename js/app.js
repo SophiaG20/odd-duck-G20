@@ -9,7 +9,7 @@ let img3 = document.getElementById("img3");
 // Product Constructor:
 function Product(name) {
     this.name = name;
-    this.src = `assets/${name}.jpg`;
+    this.src = `IMG/assets/${name}.jpg`;
     this.clicked = 0;
     this.views = 0;
     allProducts.push(this);
