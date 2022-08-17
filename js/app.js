@@ -69,21 +69,13 @@ button.addEventListener('click', showNewImage);
 // This is the event handler that gets invoked when we click the button
 function showNewImage() {
     // Get a random product
-    let product = allProducts[randomImage()];
-    // Select the img
-    let img = document.getElementById("productImage");
-    // Make the img the product
-    img.src = `assets/${product.name}.jpg`;
-    img.alt = product.name;
-    img.title = product.name;
-    // Increments shown product's .clicked property
-    product.clicked++;
-    console.log(product);
-    currentRound++;
-    // Logic for when voting rounds have completed:
-    if (currentRound === 10) {
-        // Remove my event listener
-        button.removeEventListener('click', showNewImage);
+    let product1 = randomImage();
+    let product2 = randomImage();
+    let product3 = randomImage();
+    // Get the image element
+    while (product1 === product2 || product1 === product3 || product2 === product3) {
+        product2 = randomImage();
+        product3 = randomImage();
     }
 }
 
