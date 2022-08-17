@@ -11,32 +11,32 @@ function Product(name) {
     this.name = name;
     this.src = `assets/${name}.jpg`;
     this.clicked = 0;
+    this.views = 0;
     allProducts.push(this);
 }
 
 // Products Category
-let productNames = [
-    "bag",
-    "banana",
-    "bathroom",
-    "boots",
-    "breakfast",
-    "bubblegum",
-    "chair",
-    "cthulhu",
-    "dog-duck",
-    "dragon",
-    "pen",
-    "pet-sweep",
-    "scissors",
-    "shark",
-    "sweep",
-    "tauntaun",
-    "unicorn",
-    "usb",
-    "water-can",
-    "wine-glass"
-];
+new Product("bag");
+new Product("banana");
+new Product("bathroom");
+new Product("boots");
+new Product("breakfast");
+new Product("bubblegum");
+new Product("chair");
+new Product("cthulhu");
+new Product("dog-duck");
+new Product("dragon");
+new Product("pen");
+new Product("pet-sweep");
+new Product("scissors");
+new Product("shark");
+new Product("sweep");
+new Product("tauntaun");
+new Product("unicorn");
+new Product("usb");
+new Product("water-can");
+new Product("wine-glass");
+new Product("pencil");
 
 let currentRound = 0
 
@@ -80,6 +80,16 @@ function showNewImage() {
         product2 = randomImage();
         product3 = randomImage();
     }
+    img1.src = allProducts[product1].src;
+    img2.src = allProducts[product2].src;
+    img3.src = allProducts[product3].src;
+    img1.alt = allProducts[product1].name;
+    img2.alt = allProducts[product2].name;
+    img3.alt = allProducts[product3].name;
+    // Increment the views for each product
+    allProducts[product1].views++;
+    allProducts[product2].views++;
+    allProducts[product3].views++;
 }
 
 showNewImage();
