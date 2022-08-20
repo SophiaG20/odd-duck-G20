@@ -3,9 +3,6 @@
 console.log("test");
 
 const allProducts = [];
-let img1 = document.getElementById("img1");
-let img2 = document.getElementById("img2");
-let img3 = document.getElementById("img3");
 let section = document.getElementById("section");
 // Product Constructor:
 function Product(name) {
@@ -68,7 +65,12 @@ function randomImage() {
 
 // Event Listener Steps:
 let button = document.getElementById("productButton");
-button.addEventListener('click', showNewImage);
+let img1 = document.getElementById("img1");
+img1.addEventListener('click', handleProductClick);
+let img2 = document.getElementById("img2");
+img2.addEventListener('click', handleProductClick);
+let img3 = document.getElementById("img3");
+img3.addEventListener('click', handleProductClick);
 
 // This is the event handler that gets invoked when we click the button
 function showNewImage() {
