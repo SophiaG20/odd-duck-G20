@@ -6,6 +6,7 @@ const allProducts = [];
 let img1 = document.getElementById("img1");
 let img2 = document.getElementById("img2");
 let img3 = document.getElementById("img3");
+let section = document.getElementById("section");
 // Product Constructor:
 function Product(name) {
     this.name = name;
@@ -94,6 +95,23 @@ function showNewImage() {
 
 showNewImage();
 
+handleProductClick = function(event) {
+    // Get the alt attribute of the image that was clicked
+    let alt = event.target.alt;
+    // Find the product in the allProducts array that has the same name as the alt attribute
+  for (let i = 0; i < allProducts.length; i++) {
+    if (allProducts[i].name === alt) {
+      allProducts[i].clicked++;
+
+      break;
+    }
+    }
+        showNewImage();
+    if(currentRound === 25){
+        button.className = "clicks-allowed";
+        section.removeEventListener('click', handleProductClick);
+    }
+}
 
 // HINT: use Array.includes(<target item>) array method to generate 3 uniquely random images
 
