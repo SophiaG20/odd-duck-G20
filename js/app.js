@@ -74,12 +74,18 @@ function handleProductClick (event) {
     }
     }
     currentRound++;
-        showNewImage();
-    if(currentRound === 25){
+    
+    if(currentRound === 5){
         button.className = "clicks-allowed";
-        section.removeEventListener('click', handleProductClick);
+        img1.removeEventListener("click", handleProductClick);
+        img2.removeEventListener("click", handleProductClick);
+        img3.removeEventListener("click", handleProductClick);
+    }
+    else {
+    showNewImage();
     }
 }
+
 
 // Event Listener Steps:
 let button = document.getElementById("productButton");
