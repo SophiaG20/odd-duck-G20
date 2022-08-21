@@ -131,6 +131,7 @@ function renderResults(){
 }
 
 showNewImage();
+button.addEventListener("click", renderResults);
 
 
 // HINT: use Array.includes(<target item>) array method to generate 3 uniquely random images
