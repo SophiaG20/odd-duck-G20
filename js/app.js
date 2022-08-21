@@ -5,11 +5,11 @@ console.log("test");
 const allProducts = [];
 let section = document.getElementById("section");
 // Product Constructor:
-function Product(name) {
+function Product(name, src, views = 0, clicked = 0) {
     this.name = name;
     this.src = `IMG/assets/${name}.jpg`;
-    this.clicked = 0;
-    this.views = 0;
+    this.clicked = clicked;
+    this.views = views;
     allProducts.push(this);
 }
 
@@ -62,6 +62,23 @@ function randomImage() {
 // let img = document.getElementById("productImage");
 // img.src = `assets/${product.name}.jpg`;
 
+function handleProductClick (event) {
+    // Get the alt attribute of the image that was clicked
+    let alt = event.target.alt;
+    // Find the product in the allProducts array that has the same name as the alt attribute
+  for (let i = 0; i < allProducts.length; i++) {
+    if (allProducts[i].name === alt) {
+      allProducts[i].clicked++;
+
+      break;
+    }
+    }
+        showNewImage();
+    if(currentRound === 25){
+        button.className = "clicks-allowed";
+        section.removeEventListener('click', handleProductClick);
+    }
+}
 
 // Event Listener Steps:
 let button = document.getElementById("productButton");
@@ -74,6 +91,7 @@ img3.addEventListener('click', handleProductClick);
 
 // This is the event handler that gets invoked when we click the button
 function showNewImage() {
+    console.log (allProducts);
     // Get a random product
     let product1 = randomImage();
     let product2 = randomImage();
@@ -97,23 +115,6 @@ function showNewImage() {
 
 showNewImage();
 
-handleProductClick = function(event) {
-    // Get the alt attribute of the image that was clicked
-    let alt = event.target.alt;
-    // Find the product in the allProducts array that has the same name as the alt attribute
-  for (let i = 0; i < allProducts.length; i++) {
-    if (allProducts[i].name === alt) {
-      allProducts[i].clicked++;
-
-      break;
-    }
-    }
-        showNewImage();
-    if(currentRound === 25){
-        button.className = "clicks-allowed";
-        section.removeEventListener('click', handleProductClick);
-    }
-}
 
 // HINT: use Array.includes(<target item>) array method to generate 3 uniquely random images
 
