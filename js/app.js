@@ -31,10 +31,10 @@ new Product("shark");
 new Product("sweep");
 new Product("tauntaun");
 new Product("unicorn");
-new Product("usb");
+// new Product("usb");
 new Product("water-can");
 new Product("wine-glass");
-new Product("pencil");
+// new Product("pencil");
 
 let currentRound = 0
 
@@ -73,6 +73,7 @@ function handleProductClick (event) {
       break;
     }
     }
+    currentRound++;
         showNewImage();
     if(currentRound === 25){
         button.className = "clicks-allowed";
