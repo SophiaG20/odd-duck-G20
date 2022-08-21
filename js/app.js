@@ -120,6 +120,15 @@ function showNewImage() {
     allProducts[product3].views++;
 }
 
+function renderResults(){
+    for (let i = 0; i < allProducts.length; i++) {
+        let product = allProducts[i];
+        let productRow = document.createElement("tr");
+        productRow.innerHTML = `<td>${product.name}</td><td>${product.views}</td><td>${product.clicked}</td>`;
+        section.appendChild(productRow);
+    }
+}
+
 showNewImage();
 
 
