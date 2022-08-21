@@ -75,7 +75,7 @@ function handleProductClick (event) {
     }
     currentRound++;
     
-    if(currentRound === 5){
+    if(currentRound === 25){
         button.className = "clicks-allowed";
         img1.removeEventListener("click", handleProductClick);
         img2.removeEventListener("click", handleProductClick);
