@@ -121,12 +121,13 @@ function showNewImage() {
 }
 
 function renderResults(){
+    let ul = document.getElementById("resultList");
     for (let i = 0; i < allProducts.length; i++) {
-        let product = allProducts[i];
-        let productRow = document.createElement("tr");
-        productRow.innerHTML = `<td>${product.name}</td><td>${product.views}</td><td>${product.clicked}</td>`;
-        section.appendChild(productRow);
+        let li = document.createElement("li");
+        li.textContent = `${allProducts[i].name} had ${allProducts[i].views} views and was clicked ${allProducts[i].clicked} times.`;
+        ul.appendChild(li);
     }
+    return ul;
 }
 
 showNewImage();
