@@ -104,8 +104,8 @@ function showNewImage() {
     // Get a random product
     
     // Get the image element
-    let uniqueImages = []
-    while (uniqueImages.length < 3) {
+
+    while (previousArray.length < 6) {
         let randomImage = randomImage();
         if (!previousArray.includes(randomImage)) {
             previousArray.push(randomImage);
