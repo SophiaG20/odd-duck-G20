@@ -3,6 +3,8 @@
 console.log("test");
 
 const allProducts = [];
+
+let previousArray = [];
 let section = document.getElementById("section");
 // Product Constructor:
 function Product(name, src, views = 0, clicked = 0) {
@@ -104,10 +106,16 @@ function showNewImage() {
     let product2 = randomImage();
     let product3 = randomImage();
     // Get the image element
-    while (product1 === product2 || product1 === product3 || product2 === product3) {
-        product2 = randomImage();
-        product3 = randomImage();
+    let uniqueImages = []
+    while (uniqueImages.length < 3) {
+        let randomImage = randomImage();
+        if (uniqueImages.includes(randomImage)|| previousArray.includes(randomImage)) {
+            ;
+        }
+    else {
+        uniqueImages.push(randomImage);
     }
+    previousArray = uniqueImages;
     img1.src = allProducts[product1].src;
     img2.src = allProducts[product2].src;
     img3.src = allProducts[product3].src;
