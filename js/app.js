@@ -102,20 +102,19 @@ img3.addEventListener('click', handleProductClick);
 function showNewImage() {
     console.log (allProducts);
     // Get a random product
-    let product1 = randomImage();
-    let product2 = randomImage();
-    let product3 = randomImage();
+    
     // Get the image element
     let uniqueImages = []
     while (uniqueImages.length < 3) {
         let randomImage = randomImage();
-        if (uniqueImages.includes(randomImage)|| previousArray.includes(randomImage)) {
-            ;
-        }
-    else {
-        uniqueImages.push(randomImage);
+        if (!previousArray.includes(randomImage)) {
+            previousArray.push(randomImage);
+}
     }
-    previousArray = uniqueImages;
+    let product1 = previousArray.shift();
+    let product2 = previousArray.shift();
+    let product3 = previousArray.shift();
+    
     img1.src = allProducts[product1].src;
     img2.src = allProducts[product2].src;
     img3.src = allProducts[product3].src;
@@ -143,7 +142,5 @@ button.addEventListener("click", renderResults);
 
 
 // HINT: use Array.includes(<target item>) array method to generate 3 uniquely random images
-
-
 
 
